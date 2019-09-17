@@ -145,5 +145,10 @@ class CuratorTest < Minitest::Test
     assert_equal "France", @curator.artists[0].country
   end
 
+  def photographs_taken_between
+    @curator.load_photographs('./data/photographs.csv')
+    assert_equal 2, @curator.photographs_taken_between(1950..1965).length
+  end
+
 
 end
