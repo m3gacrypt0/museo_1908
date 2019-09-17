@@ -12,7 +12,7 @@ class CuratorTest < Minitest::Test
     assert_instance_of Curator, @curator
   end
 
-  def test_it_has_attributes
+  def test_it_has_intitial_attributes
     assert_equal [], @curator.photographs
     assert_equal [], @curator.artists
   end
