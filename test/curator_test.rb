@@ -125,4 +125,35 @@ class CuratorTest < Minitest::Test
     assert_equal [@photo_2, @photo_3, @photo_4], @curator.photographs_taken_by_artists_from("United States")
     assert_equal [], @curator.photographs_taken_by_artists_from("Argentina")
   end
+
+  def test_method_load_photographs
+    @photo_5 = Photograph.new({
+         id: "1",
+         name: "Rue Mouffetard, Paris (Boy with Bottles)",
+         artist_id: "1",
+         year: "1954"
+    })
+    @photo_6 = Photograph.new({
+         id: "2",
+         name: "Moonrise, Hernandez",
+         artist_id: "2",
+         year: "1941"
+    })
+    @photo_7 = Photograph.new({
+         id: "3",
+         name: "Identical Twins, Roselle, New Jersey",
+         artist_id: "3",
+         year: "1967"
+    })
+    @photo_8 = Photograph.new({
+         id: "4",
+         name: "Child with Toy Hand Grenade in Central Park",
+         artist_id: "3",
+         year: "1962"
+    })
+    @curator.load_photographs('./data/photographs.csv')
+    assert_equal [@photo_5, @photo_6, @photo_7, @photo_8], @curator.photographs
+  end
+
+
 end
