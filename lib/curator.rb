@@ -34,4 +34,8 @@ class Curator
     artists_output
   end
 
+  def photographs_taken_by_artists_from(country)
+    @photographs.find_all {|photograph|   find_artist_by_id(photograph.artist_id).country == country}
+  end
+
 end
