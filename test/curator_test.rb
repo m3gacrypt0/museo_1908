@@ -159,5 +159,4 @@ class CuratorTest < Minitest::Test
     assert_equal expected, @curator.artists_photographs_by_age(diane_arbus)
   end
 
-
 end
