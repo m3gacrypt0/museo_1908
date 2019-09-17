@@ -1,0 +1,4 @@
+class Photograph
+
+
+end
