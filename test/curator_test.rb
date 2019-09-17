@@ -135,5 +135,15 @@ class CuratorTest < Minitest::Test
     assert_equal "1954", @curator.photographs[0].year
   end
 
+  def test_load_artists
+    @curator.load_artists('./data/artists.csv')
+    assert_equal 6, @curator.artists.length
+    assert_equal "1", @curator.artists[0].id
+    assert_equal "Henri Cartier-Bresson", @curator.artists[0].name
+    assert_equal "1908", @curator.artists[0].born
+    assert_equal "2004", @curator.artists[0].died
+    assert_equal "France", @curator.artists[0].country
+  end
+
 
 end
