@@ -50,7 +50,19 @@ class Curator
       })
       @photographs << new_photo
     end
+  end
 
+  def load_artists(filepath)
+    CSV.foreach(filepath, headers: true) do |row|
+      new_artist = Artist.new({
+           id: row["id"],
+           name: row["name"],
+           born: row["born"],
+           died: row["died"],
+           country: row["country"]
+      })
+      @artists << new_artist
+    end
   end
 
 end
